@@ -2,20 +2,37 @@
 
 A private-by-default messaging platform for Android, iOS, and Web.
 
-## Planned technology
+**Web app target:** https://chat.apokolips.xyz
 
-- Flutter and Dart for the cross-platform client
-- Supabase for authentication, PostgreSQL, realtime messaging, and storage
-- Firebase Cloud Messaging for push notifications
+## Technology
+- Flutter and Dart — cross-platform client
+- Supabase — authentication, PostgreSQL, realtime messaging, and storage
+- Firebase Cloud Messaging — planned push notifications
 
-## Project status
+## Current status
+Phase 01 establishes the Flutter application shell, Apokolips visual theme, responsive navigation, and safe Supabase configuration entry point. Authentication and live messaging are planned for later phases.
 
-Foundation setup is in progress. Authentication, messaging, calls, and end-to-end encryption will be introduced in staged releases.
+## Run locally
+Install the Flutter SDK, then run:
 
-## Development
+    flutter pub get
+    flutter run
 
-Flutter SDK setup and local run instructions will be added with the application foundation.
+To connect the existing Supabase project, supply its URL and public anon/publishable key at build time:
 
-## Security
+    flutter run --dart-define=SUPABASE_URL=https://YOUR_PROJECT.supabase.co --dart-define=SUPABASE_ANON_KEY=YOUR_PUBLIC_KEY
 
-Never commit Supabase service-role keys, Firebase service-account files, signing keys, or other secrets. Client applications must use only public client configuration and enforce authorization with database policies.
+Do not place service-role keys, Firebase service-account credentials, signing keys, or other secrets in the repository or client application.
+
+## Project structure
+    lib/
+      main.dart
+      app.dart
+      screens/
+        home_screen.dart
+      theme/
+        app_theme.dart
+    docs/
+      architecture.md
+
+See docs/architecture.md for architecture and security notes.

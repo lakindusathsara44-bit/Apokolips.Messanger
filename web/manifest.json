@@ -1,0 +1,10 @@
+{
+  "name": "Apokolips Messenger",
+  "short_name": "Apokolips",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#080B12",
+  "theme_color": "#080B12",
+  "description": "Private messaging by Apokolips.",
+  "orientation": "portrait-primary"
+}
