@@ -6,10 +6,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   const supabaseUrl = String.fromEnvironment('SUPABASE_URL');
   const supabaseAnonKey = String.fromEnvironment('SUPABASE_ANON_KEY');
-  // The UI can run before backend credentials are configured.
-  // Never place a Supabase service-role key in a client application.
-  if (supabaseUrl.isNotEmpty && supabaseAnonKey.isNotEmpty) {
+  final supabaseConfigured = supabaseUrl.isNotEmpty && supabaseAnonKey.isNotEmpty;
+
+  // Only the public client key belongs in a Flutter application.
+  if (supabaseConfigured) {
     await Supabase.initialize(url: supabaseUrl, anonKey: supabaseAnonKey);
   }
-  runApp(const ApokolipsMessengerApp());
+  runApp(ApokolipsMessengerApp(supabaseConfigured: supabaseConfigured));
 }
