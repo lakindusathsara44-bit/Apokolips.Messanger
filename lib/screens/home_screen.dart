@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import '../theme/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -60,7 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
         SizedBox(height: 3),
         Text('Messenger', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700)),
       ])),
-      IconButton(tooltip: 'New message', onPressed: () {}, icon: const Icon(Icons.edit_square)),
+      IconButton(
+        tooltip: 'Sign out',
+        onPressed: () async => Supabase.instance.client.auth.signOut(),
+        icon: const Icon(Icons.logout),
+      ),
       const CircleAvatar(radius: 18, backgroundColor: AppTheme.elevated, child: Icon(Icons.person_outline, size: 20)),
     ]),
   );
