@@ -1,0 +1,27 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+# IDE
+.idea/
+.vscode/
+*.iml
+# Platform build artifacts
+/android/.gradle/
+/android/local.properties
+/ios/Pods/
+/ios/.symlinks/
+/macos/Pods/
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+**/google-services.json
+**/GoogleService-Info.plist
+*.jks
+*.keystore
